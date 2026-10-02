@@ -31,11 +31,11 @@ jobs:
       - name: Generate app icons
         run: npm run assets
 
-      # Keystore & password diambil dari GitHub Secrets, TIDAK disimpan di repo.
+      # Keystore & password diambil dari GitHub Secrets
       - name: Siapkan keystore rilis dari Secrets
         if: ${{ secrets.KEYSTORE_BASE64 != '' }}
         run: |
-         echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/kas-kelas-release.keystore
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/kas-kelas-release.keystore
           cat > android/keystore.properties << PROPS
           storeFile=app/kas-kelas-release.keystore
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
