@@ -35,9 +35,9 @@ jobs:
       - name: Siapkan keystore rilis dari Secrets
         if: ${{ secrets.KEYSTORE_BASE64 != '' }}
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/kas-kelas-release.keystore
+         echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/kas-kelas-release.keystore
           cat > android/keystore.properties << PROPS
-          storeFile=kas-kelas-release.keystore
+          storeFile=app/kas-kelas-release.keystore
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
           keyAlias=${{ secrets.KEYSTORE_ALIAS }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
