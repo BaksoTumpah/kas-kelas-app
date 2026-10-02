@@ -30,7 +30,7 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
-     - name: Siapkan Keystore & Properties
+      - name: Siapkan Keystore & Properties
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/kas-kelas-release.keystore
           cat > android/keystore.properties << PROPS
